@@ -1,0 +1,405 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Bomin Kang — Portfolio</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#0f1724; --card:#0b1220; --muted:#9aa4b2; --accent:#6ee7b7; --text:#e6eef6;
+  --glass: rgba(255,255,255,0.03);
+}
+[data-theme="light"]{
+  --bg:#f6f8fb; --card:#ffffff; --muted:#58606b; --accent:#0ea5a0; --text:#071029; --glass: rgba(10,22,33,0.03);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{height:100%;font-family:'Inter',system-ui,-apple-system,Segoe UI,Roboto,'Noto Sans',Helvetica,Arial;line-height:1.6;background:var(--bg);color:var(--text);font-size:15px}
+.container{max-width:1100px;margin:0 auto;padding:24px}
+
+/* Header */
+header{display:flex;align-items:center;justify-content:space-between;gap:16px;margin-bottom:32px;padding-bottom:16px;border-bottom:1px solid var(--glass)}
+.brand{display:flex;align-items:center;gap:14px}
+.avatar{width:48px;height:48px;border-radius:10px;background:linear-gradient(135deg,var(--accent),#7dd3fc);display:flex;align-items:center;justify-content:center;font-weight:800;font-size:18px;color:var(--bg);box-shadow:0 4px 12px rgba(2,6,23,0.4);}
+h1{font-size:20px;font-weight:700}
+.subtitle{font-size:13px;color:var(--muted);margin-top:2px}
+nav{display:flex;gap:8px;align-items:center}
+nav a{color:var(--muted);text-decoration:none;font-weight:500;padding:8px 12px;border-radius:8px;font-size:14px;transition:all 0.2s}
+nav a:hover{background:var(--glass);color:var(--text)}
+.btn{background:linear-gradient(90deg,var(--accent),#60a5fa);color:var(--bg);padding:8px 16px;border-radius:8px;font-weight:600;text-decoration:none;font-size:14px;box-shadow:0 4px 12px rgba(110,231,183,0.3);transition:transform 0.2s;display:inline-block}
+.btn:hover{transform:translateY(-2px)}
+
+/* Hero Section */
+.hero{display:grid;grid-template-columns:1.5fr 1fr;gap:24px;margin-bottom:40px}
+.lead{background:var(--card);padding:28px;border-radius:14px;box-shadow:0 4px 12px rgba(2,6,23,0.3)}
+.lead h2{font-size:26px;margin-bottom:12px;font-weight:700}
+.lead p{color:var(--muted);margin-bottom:20px;line-height:1.7}
+.skills{display:flex;flex-wrap:wrap;gap:8px;margin:20px 0}
+.chip{background:var(--glass);border:1px solid rgba(255,255,255,0.08);padding:6px 14px;border-radius:20px;font-weight:500;color:var(--muted);font-size:13px}
+.hero-actions{display:flex;gap:12px;margin-top:20px}
+.btn-secondary{background:transparent;border:2px solid var(--accent);color:var(--accent);padding:8px 16px;border-radius:8px;font-weight:600;font-size:14px;cursor:pointer;transition:all 0.2s}
+.btn-secondary:hover{background:var(--accent);color:var(--bg)}
+
+/* Profile Card */
+.profile-card{background:var(--card);padding:24px;border-radius:14px;box-shadow:0 4px 12px rgba(2,6,23,0.3);display:flex;flex-direction:column;align-items:center;text-align:center}
+.profile-img{width:100px;height:100px;border-radius:12px;object-fit:cover;margin-bottom:16px;box-shadow:0 4px 12px rgba(2,6,23,0.4);background:linear-gradient(135deg,var(--accent),#7dd3fc)}
+.profile-card h3{font-size:18px;margin-bottom:8px;font-weight:700}
+.profile-card p{color:var(--muted);font-size:13px;margin:4px 0}
+.profile-card ul{text-align:left;margin:12px 0;padding-left:20px;font-size:13px;color:var(--muted)}
+.profile-card ul li{margin:4px 0}
+.profile-links{display:flex;gap:8px;margin-top:16px;flex-wrap:wrap;justify-content:center}
+.profile-links a{background:var(--glass);padding:8px 14px;border-radius:8px;text-decoration:none;color:var(--muted);font-weight:500;font-size:13px;transition:all 0.2s}
+.profile-links a:hover{background:var(--accent);color:var(--bg)}
+
+/* Sections */
+section{margin-bottom:32px}
+.card{background:var(--card);border-radius:14px;padding:28px;box-shadow:0 4px 12px rgba(2,6,23,0.3)}
+.card h2{font-size:22px;margin-bottom:20px;font-weight:700}
+
+/* Experience */
+.exp-list{display:flex;flex-direction:column;gap:20px}
+.exp-item{display:flex;justify-content:space-between;gap:16px;padding-bottom:20px;border-bottom:1px solid var(--glass)}
+.exp-item:last-child{border-bottom:none;padding-bottom:0}
+.exp-left{flex:1}
+.exp-role{font-weight:700;margin-bottom:8px;font-size:16px}
+.exp-desc{color:var(--muted);font-size:14px;margin:4px 0}
+.exp-date{color:var(--muted);font-size:13px;white-space:nowrap;font-weight:500}
+
+/* Projects */
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:16px}
+.project{padding:20px;border-radius:12px;background:linear-gradient(180deg, rgba(255,255,255,0.02), transparent);border:1px solid var(--glass);cursor:pointer;transition:all 0.3s}
+.project:hover{transform:translateY(-4px);border-color:var(--accent);box-shadow:0 8px 20px rgba(110,231,183,0.15)}
+.project h3{font-size:17px;margin-bottom:8px;font-weight:600}
+.project p{color:var(--muted);font-size:14px;margin-bottom:12px}
+.tech{display:flex;flex-wrap:wrap;gap:6px}
+.tech span{font-size:12px;padding:4px 10px;border-radius:6px;background:var(--glass);color:var(--muted)}
+
+/* Contact */
+.contact{display:flex;gap:10px;flex-wrap:wrap}
+.contact a{background:var(--glass);padding:10px 16px;border-radius:8px;text-decoration:none;color:var(--muted);font-weight:500;font-size:14px;transition:all 0.2s}
+.contact a:hover{background:var(--accent);color:var(--bg)}
+
+/* Footer */
+footer{margin-top:40px;text-align:center;color:var(--muted);font-size:13px;padding:20px 0;border-top:1px solid var(--glass)}
+
+/* Modal */
+.modal-backdrop{position:fixed;inset:0;background:rgba(2,6,23,0.8);display:flex;align-items:center;justify-content:center;padding:20px;z-index:100;backdrop-filter:blur(4px)}
+.modal{background:var(--card);padding:32px;border-radius:14px;max-width:600px;width:100%;box-shadow:0 20px 60px rgba(2,6,23,0.6)}
+.modal h3{margin-bottom:16px;font-size:22px}
+.modal p{color:var(--muted);line-height:1.7;margin-bottom:12px}
+.modal-close{float:right;background:transparent;border:0;color:var(--muted);font-weight:700;font-size:24px;cursor:pointer;padding:0;line-height:1}
+.modal-close:hover{color:var(--text)}
+.hidden{display:none}
+
+/* Mobile */
+.mobile-nav{display:none}
+.hamburger{background:transparent;border:0;color:var(--text);font-size:24px;cursor:pointer;padding:8px}
+
+@media(max-width:768px){
+  .container{padding:16px}
+  .hero{grid-template-columns:1fr;gap:20px}
+  .lead{padding:20px}
+  .lead h2{font-size:22px}
+  nav{display:none;flex-direction:column;position:absolute;top:80px;right:16px;background:var(--card);padding:16px;border-radius:12px;box-shadow:0 8px 24px rgba(2,6,23,0.5);z-index:50}
+  nav.show{display:flex}
+  .mobile-nav{display:block}
+  .grid{grid-template-columns:1fr}
+  .exp-item{flex-direction:column}
+  .exp-date{margin-top:8px}
+}
+</style>
+</head>
+<body>
+<div class="container" data-theme="dark">
+<header>
+  <div class="brand">
+    <div class="avatar">VK</div>
+    <div>
+      <h1>Bomin (Vicky) Kang</h1>
+      <p class="subtitle">Computer Science Student</p>
+    </div>
+  </div>
+  <nav id="mainNav">
+    <a href="#about">About</a>
+    <a href="#experience">Experience</a>
+    <a href="#projects">Projects</a>
+    <a href="#skills">Skills</a>
+    <a href="#contact">Contact</a>
+    <a class="btn" href="#" id="downloadResume">Resume</a>
+  </nav>
+  <div class="mobile-nav">
+    <button class="hamburger" id="navToggle">☰</button>
+  </div>
+</header>
+
+<main>
+<div class="hero">
+  <div class="lead">
+    <h2>Professional Summary</h2>
+    <p>Computer Science student at College of San Mateo, experienced in developing web applications and innovative projects using Python, HTML, CSS, and JavaScript. Enthusiastic about hands-on learning, collaborating with diverse teams, and applying technical knowledge to solve real-world problems.</p>
+    <div class="skills">
+      <div class="chip">Python</div>
+      <div class="chip">Java</div>
+      <div class="chip">HTML/CSS/JS</div>
+      <div class="chip">Excel</div>
+      <div class="chip">Teamwork</div>
+      <div class="chip">Leadership</div>
+    </div>
+    <div class="hero-actions">
+      <a class="btn" href="#projects">View Projects</a>
+      <button class="btn-secondary" id="themeToggle">Toggle Theme</button>
+    </div>
+  </div>
+
+  <aside class="profile-card">
+    <div class="profile-img"><img src="photo.jpg" alt="ID photo" style="width:120px;height:120px;border-radius:12px;object-fit:cover;margin-bottom:12px;box-shadow:0 4px 12px rgba(2,6,23,0.4)"></div>
+    <h3>Education & Involvement</h3>
+    <p><strong>College of San Mateo</strong></p>
+    <p>2025-2027(expected)</p>
+    <p>Computer Science Major</p>
+    <ul>
+      <li>ASCSM Equity Affairs Board</li>
+      <li>ASCSM Open Education Initiative</li>
+      <li>Google Developer Group on Campus</li>
+    </ul>
+    <p style="margin-top:12px"><strong>vicky1013kr@gmail.com</strong></p>
+    <div class="profile-links">
+      <a href="https://www.linkedin.com/in/bomin-kang-079133387" target="_blank">LinkedIn</a>
+      <a href="https://github.com/vickykang1013/cs-study.git" target="_blank">GitHub</a>
+      <a href="#">Portfolio PDF</a>
+    </div>
+  </aside>
+</div>
+
+<section id="experience">
+  <div class="card">
+    <h2>Experience</h2>
+    <div class="exp-list">
+      <div class="exp-item">
+        <div class="exp-left">
+          <p class="exp-role">Restaurant Server — ChaR Restaurant</p>
+          <ul>
+            <li class="exp-desc">Provided high-quality customer service in a fast-paced dining environment</li>
+            <li class="exp-desc">Managed multiple tables efficiently while ensuring customer satisfaction</li>
+          </ul>
+        </div>
+        <div class="exp-date">Dec 2023 – Mar 2025</div>
+      </div>
+      <div class="exp-item">
+        <div class="exp-left">
+          <p class="exp-role">Student Support Manager — Unisense English Academy</p>
+          <ul>
+            <li class="exp-desc">Managed daily academy operations and provided one-on-one counseling for students</li>
+            <li class="exp-desc">Coordinated class schedules, handled inquiries, and resolved issues efficiently</li>
+          </ul>
+        </div>
+        <div class="exp-date">Mar 2025 – Jul 2025</div>
+      </div>
+      <div class="exp-item">
+        <div class="exp-left">
+          <p class="exp-role">Production Director — Megastudy</p>
+          <ul>
+            <li class="exp-desc">Set up camera equipment and audio systems to ensure high-quality lecture recordings</li>
+            <li class="exp-desc">Documented editing points to assist editors in post-production</li>
+          </ul>
+        </div>
+        <div class="exp-date">Jun 2025 – Jul 2025</div>
+      </div>         
+    </div>
+  </div>
+</section>
+
+<section id="projects">
+  <div class="card">
+    <h2>Projects</h2>
+    <div class="grid" id="projectsGrid">
+      <div class="project" 
+           data-title="Personal Portfolio Website" 
+           data-desc="Responsive personal website with theme switching and project showcase." 
+           data-tech="HTML, CSS, JavaScript"
+           data-github="https://github.com/vickykang1013/portfolio">
+        <h3>Portfolio Website</h3>
+        <p>Responsive personal website with theme switching and project showcase</p>
+        <div class="tech"><span>HTML</span><span>CSS</span><span>JavaScript</span></div>
+      </div>
+
+      <div class="project" 
+           data-title="Cal Hacks 12.0 - LearnIt AI" 
+           data-desc="AI-powered study planner that helps students analyze syllabus, create weekly study guides, and build personalized learning plans." 
+           data-tech="Python, HTML, CSS, JavaScript"
+           data-website="https://learnit-ai.onrender.com"
+           data-github="https://github.com/vickykang1013/LearnIT-AI.git"
+           data-youtube="https://youtu.be/3X_qVOhj9WM?si=AsFyXIHlBbtKOd07"
+           data-slide="https://docs.google.com/presentation/d/1Ql5tLC9wLpREKFOQVa8_k69rQ9qiUbW8nX2Ou9X4qc4/edit?usp=sharing">
+        <h3>Cal Hacks 12.0 - LearnIt AI</h3>
+        <p>AI-powered study planner for students</p>
+        <div class="tech"><span>Python</span><span>HTML</span><span>CSS</span><span>JavaScript</span></div>
+      </div>
+
+      <div class="project" 
+           data-title="Project Coming Soon" 
+           data-desc="More exciting projects are on the way!" 
+           data-tech="TBD">
+        <h3>Project 3</h3>
+        <p>Coming soon...</p>
+        <div class="tech"><span>TBD</span></div>
+      </div>
+
+      <div class="project" 
+           data-title="Project Coming Soon" 
+           data-desc="More exciting projects are on the way!" 
+           data-tech="TBD">
+        <h3>Project 4</h3>
+        <p>Coming soon...</p>
+        <div class="tech"><span>TBD</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="skills">
+  <div class="card">
+    <h2>Skills</h2>
+    <div class="skills">
+      <div class="chip">Python</div>
+      <div class="chip">Java</div>
+      <div class="chip">HTML/CSS/JavaScript</div>
+      <div class="chip">Excel</div>
+      <div class="chip">Multitasking</div>
+      <div class="chip">Teamwork</div>
+      <div class="chip">Leadership</div>
+      <div class="chip">Problem Solving</div>
+    </div>
+  </div>
+</section>
+
+<section id="language">
+  <div class="card">
+    <h2>Languages</h2>
+    <ul style="padding-left:20px; color:var(--muted);line-height:1.8">
+      <li><strong style="color:var(--text)">Korean</strong> — Native</li>
+      <li><strong style="color:var(--text)">English</strong> — Professional Working Proficiency</li>
+    </ul>
+  </div>
+</section>
+
+<section id="contact">
+  <div class="card">
+    <h2>Contact</h2>
+    <p style="color:var(--muted);margin-bottom:16px">Thanks for your interest! I'm always open to new opportunities and collaborations.</p>
+    <div class="contact">
+      <a href="mailto:vicky1013kr@gmail.com">Email</a>
+      <a href="https://www.linkedin.com/in/bomin-kang-079133387" target="_blank">LinkedIn</a>
+      <a href="https://github.com/vickykang1013" target="_blank">GitHub</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <p>© 2025 Bomin Kang. All rights reserved.</p>
+</footer>
+
+<div class="modal-backdrop hidden" id="modalBackdrop">
+  <div class="modal">
+    <button class="modal-close" id="modalClose">&times;</button>
+    <h3 id="modalTitle"></h3>
+    <p id="modalDesc"></p>
+    <p><strong>Tech:</strong> <span id="modalTech"></span></p>
+    <div id="modalLinks" style="margin-top:16px"></div>
+  </div>
+</div>
+
+<script>
+const themeToggle = document.getElementById('themeToggle');
+const container = document.querySelector('.container');
+themeToggle.addEventListener('click', () => {
+  container.dataset.theme = container.dataset.theme === 'dark' ? 'light' : 'dark';
+});
+
+const navToggle = document.getElementById('navToggle');
+const mainNav = document.getElementById('mainNav');
+navToggle.addEventListener('click', () => {
+  mainNav.classList.toggle('show');
+});
+
+const projects = document.querySelectorAll('.project');
+const modalBackdrop = document.getElementById('modalBackdrop');
+const modalTitle = document.getElementById('modalTitle');
+const modalDesc = document.getElementById('modalDesc');
+const modalTech = document.getElementById('modalTech');
+const modalClose = document.getElementById('modalClose');
+
+projects.forEach(p => {
+  p.addEventListener('click', () => {
+    modalTitle.textContent = p.dataset.title;
+    modalDesc.textContent = p.dataset.desc;
+    modalTech.textContent = p.dataset.tech;
+
+    const linksContainer = document.getElementById('modalLinks');
+    linksContainer.innerHTML = '';
+    
+    if(p.dataset.github && p.dataset.website !== '#' && p.dataset.website !== '') {
+      const websiteLink = document.createElement('a');
+      websiteLink.href = p.dataset.website;
+      websiteLink.target = '_blank';
+      websiteLink.textContent = 'View Website';
+      websiteLink.style.cssText = 'color:var(--accent);text-decoration:none;font-weight:600;margin-right:16px';
+      linksContainer.appendChild(websiteLink);
+    }
+
+
+
+    if(p.dataset.github && p.dataset.github !== '#' && p.dataset.github !== '') {
+      const githubLink = document.createElement('a');
+      githubLink.href = p.dataset.github;
+      githubLink.target = '_blank';
+      githubLink.textContent = 'GitHub';
+      githubLink.style.cssText = 'color:var(--accent);text-decoration:none;font-weight:600;margin-right:16px';
+      linksContainer.appendChild(githubLink);
+    }
+    
+    
+    if(p.dataset.demo && p.dataset.demo !== '#' && p.dataset.demo !== '') {
+      const demoLink = document.createElement('a');
+      demoLink.href = p.dataset.demo;
+      demoLink.target = '_blank';
+      demoLink.textContent = 'Demo';
+      demoLink.style.cssText = 'color:var(--accent);text-decoration:none;font-weight:600;margin-right:16px';
+      linksContainer.appendChild(demoLink);
+    }
+    
+    
+    if(p.dataset.youtube && p.dataset.youtube !== '#' && p.dataset.youtube !== '') {
+      const youtubeLink = document.createElement('a');
+      youtubeLink.href = p.dataset.youtube;
+      youtubeLink.target = '_blank';
+      youtubeLink.textContent = 'Watch Demo';
+      youtubeLink.style.cssText = 'color:var(--accent);text-decoration:none;font-weight:600';
+      linksContainer.appendChild(youtubeLink);
+    }
+
+    
+  if(p.dataset.slide && p.dataset.slide !== '#' && p.dataset.slide !== '') {
+    const slideLink = document.createElement('a');
+    slideLink.href = p.dataset.slide;
+    slideLink.target = '_blank';
+    slideLink.textContent = 'Slides'; 
+    slideLink.style.cssText = 'color:var(--accent);text-decoration:none;font-weight:600;margin-left:16px';
+    linksContainer.appendChild(slideLink);
+}
+
+    
+    modalBackdrop.classList.remove('hidden');
+  });
+});
+
+modalClose.addEventListener('click', () => {
+  modalBackdrop.classList.add('hidden');
+});
+
+modalBackdrop.addEventListener('click', (e) => {
+  if(e.target === modalBackdrop) modalBackdrop.classList.add('hidden');
+});
+</script>
+</body>
+</html>
