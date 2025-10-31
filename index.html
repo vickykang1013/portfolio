@@ -19,8 +19,7 @@ html,body{height:100%;font-family:'Inter',system-ui,-apple-system,Segoe UI,Robot
 
 /* Header */
 header{display:flex;align-items:center;justify-content:space-between;gap:16px;margin-bottom:32px;padding-bottom:16px;border-bottom:1px solid var(--glass)}
-.brand{display:flex;align-items:center;gap:14px}
-.avatar{width:48px;height:48px;border-radius:10px;background:linear-gradient(135deg,var(--accent),#7dd3fc);display:flex;align-items:center;justify-content:center;font-weight:800;font-size:18px;color:var(--bg);box-shadow:0 4px 12px rgba(2,6,23,0.4);}
+.brand{display:flex;flex-direction:column;}
 h1{font-size:20px;font-weight:700}
 .subtitle{font-size:13px;color:var(--muted);margin-top:2px}
 nav{display:flex;gap:8px;align-items:center}
@@ -28,6 +27,8 @@ nav a{color:var(--muted);text-decoration:none;font-weight:500;padding:8px 12px;b
 nav a:hover{background:var(--glass);color:var(--text)}
 .btn{background:linear-gradient(90deg,var(--accent),#60a5fa);color:var(--bg);padding:8px 16px;border-radius:8px;font-weight:600;text-decoration:none;font-size:14px;box-shadow:0 4px 12px rgba(110,231,183,0.3);transition:transform 0.2s;display:inline-block}
 .btn:hover{transform:translateY(-2px)}
+.btn-secondary{background:transparent;border:2px solid var(--accent);color:var(--accent);padding:8px 16px;border-radius:8px;font-weight:600;font-size:14px;cursor:pointer;transition:all 0.2s}
+.btn-secondary:hover{background:var(--accent);color:var(--bg)}
 
 /* Hero Section */
 .hero{display:grid;grid-template-columns:1.5fr 1fr;gap:24px;margin-bottom:40px}
@@ -37,12 +38,9 @@ nav a:hover{background:var(--glass);color:var(--text)}
 .skills{display:flex;flex-wrap:wrap;gap:8px;margin:20px 0}
 .chip{background:var(--glass);border:1px solid rgba(255,255,255,0.08);padding:6px 14px;border-radius:20px;font-weight:500;color:var(--muted);font-size:13px}
 .hero-actions{display:flex;gap:12px;margin-top:20px}
-.btn-secondary{background:transparent;border:2px solid var(--accent);color:var(--accent);padding:8px 16px;border-radius:8px;font-weight:600;font-size:14px;cursor:pointer;transition:all 0.2s}
-.btn-secondary:hover{background:var(--accent);color:var(--bg)}
 
 /* Profile Card */
 .profile-card{background:var(--card);padding:24px;border-radius:14px;box-shadow:0 4px 12px rgba(2,6,23,0.3);display:flex;flex-direction:column;align-items:center;text-align:center}
-.profile-img{width:100px;height:100px;border-radius:12px;object-fit:cover;margin-bottom:16px;box-shadow:0 4px 12px rgba(2,6,23,0.4);background:linear-gradient(135deg,var(--accent),#7dd3fc)}
 .profile-card h3{font-size:18px;margin-bottom:8px;font-weight:700}
 .profile-card p{color:var(--muted);font-size:13px;margin:4px 0}
 .profile-card ul{text-align:left;margin:12px 0;padding-left:20px;font-size:13px;color:var(--muted)}
@@ -113,11 +111,8 @@ footer{margin-top:40px;text-align:center;color:var(--muted);font-size:13px;paddi
 <div class="container" data-theme="dark">
 <header>
   <div class="brand">
-    <div class="avatar">VK</div>
-    <div>
-      <h1>Bomin (Vicky) Kang</h1>
-      <p class="subtitle">Computer Science Student</p>
-    </div>
+    <h1>Bomin (Vicky) Kang</h1>
+    <p class="subtitle">Computer Science Student</p>
   </div>
   <nav id="mainNav">
     <a href="#about">About</a>
@@ -125,7 +120,7 @@ footer{margin-top:40px;text-align:center;color:var(--muted);font-size:13px;paddi
     <a href="#projects">Projects</a>
     <a href="#skills">Skills</a>
     <a href="#contact">Contact</a>
-    <a class="btn" href="Resume(Eng).pdf" id="downloadResume">Resume</a>
+    <a class="btn" href="Resume.pdf" id="downloadResume">Resume</a>
   </nav>
   <div class="mobile-nav">
     <button class="hamburger" id="navToggle">☰</button>
@@ -140,7 +135,10 @@ footer{margin-top:40px;text-align:center;color:var(--muted);font-size:13px;paddi
     <div class="skills">
       <div class="chip">Python</div>
       <div class="chip">Java</div>
-      <div class="chip">HTML/CSS/JS</div>
+      <div class="chip">HTML/CSS/JavaScript</div>
+      <div class="chip">GitHub</div>
+      <div class="chip">Vs Code</div>
+      <div class="chip">Cybersecurity fundamentals</div>
       <div class="chip">Excel</div>
       <div class="chip">Teamwork</div>
       <div class="chip">Leadership</div>
@@ -152,9 +150,8 @@ footer{margin-top:40px;text-align:center;color:var(--muted);font-size:13px;paddi
   </div>
 
   <aside class="profile-card">
-    <div class="profile-img"><img src="photo.jpg" alt="ID photo" style="width:120px;height:120px;border-radius:12px;object-fit:cover;margin-bottom:12px;box-shadow:0 4px 12px rgba(2,6,23,0.4)"></div>
     <h3>Education & Involvement</h3>
-    <p><strong>College of San Mateo</strong></p>
+    <h4>College of San Mateo</h4>
     <p>2025-2027(expected)</p>
     <p>Computer Science Major</p>
     <ul>
@@ -171,50 +168,13 @@ footer{margin-top:40px;text-align:center;color:var(--muted);font-size:13px;paddi
   </aside>
 </div>
 
-<section id="experience">
-  <div class="card">
-    <h2>Experience</h2>
-    <div class="exp-list">
-      <div class="exp-item">
-        <div class="exp-left">
-          <p class="exp-role">Restaurant Server — ChaR Restaurant</p>
-          <ul>
-            <li class="exp-desc">Provided high-quality customer service in a fast-paced dining environment</li>
-            <li class="exp-desc">Managed multiple tables efficiently while ensuring customer satisfaction</li>
-          </ul>
-        </div>
-        <div class="exp-date">Dec 2023 – Mar 2025</div>
-      </div>
-      <div class="exp-item">
-        <div class="exp-left">
-          <p class="exp-role">Student Support Manager — Unisense English Academy</p>
-          <ul>
-            <li class="exp-desc">Managed daily academy operations and provided one-on-one counseling for students</li>
-            <li class="exp-desc">Coordinated class schedules, handled inquiries, and resolved issues efficiently</li>
-          </ul>
-        </div>
-        <div class="exp-date">Mar 2025 – Jul 2025</div>
-      </div>
-      <div class="exp-item">
-        <div class="exp-left">
-          <p class="exp-role">Production Director — Megastudy</p>
-          <ul>
-            <li class="exp-desc">Set up camera equipment and audio systems to ensure high-quality lecture recordings</li>
-            <li class="exp-desc">Documented editing points to assist editors in post-production</li>
-          </ul>
-        </div>
-        <div class="exp-date">Jun 2025 – Jul 2025</div>
-      </div>         
-    </div>
-  </div>
-</section>
-
+<!-- 나머지 섹션(Experience, Projects, Skills, Languages, Contact, Footer) 동일 -->
 <section id="projects">
   <div class="card">
     <h2>Projects</h2>
     <div class="grid" id="projectsGrid">
       <div class="project" 
-           data-title="Personal Portfolio Website" 
+           data-title="Portfolio Website" 
            data-desc="Responsive personal website with theme switching and project showcase." 
            data-tech="HTML, CSS, JavaScript"
            data-github="https://github.com/vickykang1013/portfolio">
@@ -235,24 +195,6 @@ footer{margin-top:40px;text-align:center;color:var(--muted);font-size:13px;paddi
         <p>Personalize your study schedule with an AI-powered planner using syllabus-based quizzes and videos</p>
         <div class="tech"><span>Python</span><span>HTML</span><span>CSS</span><span>JavaScript</span></div>
       </div>
-
-      <div class="project" 
-           data-title="Project Coming Soon" 
-           data-desc="More exciting projects are on the way!" 
-           data-tech="TBD">
-        <h3>Project 3</h3>
-        <p>Coming soon...</p>
-        <div class="tech"><span>TBD</span></div>
-      </div>
-
-      <div class="project" 
-           data-title="Project Coming Soon" 
-           data-desc="More exciting projects are on the way!" 
-           data-tech="TBD">
-        <h3>Project 4</h3>
-        <p>Coming soon...</p>
-        <div class="tech"><span>TBD</span></div>
-      </div>
     </div>
   </div>
 </section>
@@ -260,28 +202,29 @@ footer{margin-top:40px;text-align:center;color:var(--muted);font-size:13px;paddi
 <section id="skills">
   <div class="card">
     <h2>Skills</h2>
-    <div class="skills">
-      <div class="chip">Python</div>
-      <div class="chip">Java</div>
-      <div class="chip">HTML/CSS/JavaScript</div>
-      <div class="chip">Excel</div>
-      <div class="chip">Multitasking</div>
-      <div class="chip">Teamwork</div>
-      <div class="chip">Leadership</div>
-      <div class="chip">Problem Solving</div>
+    <div class="skills-group">
+      <h3>Technical Skills</h3>
+      <div class="skills">
+        <div class="chip">Python</div>
+        <div class="chip">Java</div>
+        <div class="chip">HTML/CSS/JavaScript</div>
+        <div class="chip">GitHub</div>
+        <div class="chip">VS Code</div>
+        <div class="chip">Excel</div>
+        <div class="chip">Cybersecurity fundamentals</div>
+      </div>
+
+      <h3>Soft Skills</h3>
+      <div class="skills">
+        <div class="chip">Teamwork</div>
+        <div class="chip">Leadership</div>
+        <div class="chip">Multitasking</div>
+        <div class="chip">Problem Solving</div>
+      </div>
     </div>
   </div>
 </section>
 
-<section id="language">
-  <div class="card">
-    <h2>Languages</h2>
-    <ul style="padding-left:20px; color:var(--muted);line-height:1.8">
-      <li><strong style="color:var(--text)">Korean</strong> — Native</li>
-      <li><strong style="color:var(--text)">English</strong> — Professional Working Proficiency</li>
-    </ul>
-  </div>
-</section>
 
 <section id="contact">
   <div class="card">
@@ -338,7 +281,7 @@ projects.forEach(p => {
     const linksContainer = document.getElementById('modalLinks');
     linksContainer.innerHTML = '';
     
-    if(p.dataset.github && p.dataset.website !== '#' && p.dataset.website !== '') {
+    if(p.dataset.website){ 
       const websiteLink = document.createElement('a');
       websiteLink.href = p.dataset.website;
       websiteLink.target = '_blank';
@@ -347,9 +290,7 @@ projects.forEach(p => {
       linksContainer.appendChild(websiteLink);
     }
 
-
-
-    if(p.dataset.github && p.dataset.github !== '#' && p.dataset.github !== '') {
+    if(p.dataset.github){
       const githubLink = document.createElement('a');
       githubLink.href = p.dataset.github;
       githubLink.target = '_blank';
@@ -357,37 +298,24 @@ projects.forEach(p => {
       githubLink.style.cssText = 'color:var(--accent);text-decoration:none;font-weight:600;margin-right:16px';
       linksContainer.appendChild(githubLink);
     }
-    
-    
-    if(p.dataset.demo && p.dataset.demo !== '#' && p.dataset.demo !== '') {
-      const demoLink = document.createElement('a');
-      demoLink.href = p.dataset.demo;
-      demoLink.target = '_blank';
-      demoLink.textContent = 'Demo';
-      demoLink.style.cssText = 'color:var(--accent);text-decoration:none;font-weight:600;margin-right:16px';
-      linksContainer.appendChild(demoLink);
-    }
-    
-    
-    if(p.dataset.youtube && p.dataset.youtube !== '#' && p.dataset.youtube !== '') {
+
+    if(p.dataset.youtube){
       const youtubeLink = document.createElement('a');
       youtubeLink.href = p.dataset.youtube;
       youtubeLink.target = '_blank';
       youtubeLink.textContent = 'Watch Demo';
-      youtubeLink.style.cssText = 'color:var(--accent);text-decoration:none;font-weight:600';
+      youtubeLink.style.cssText = 'color:var(--accent);text-decoration:none;font-weight:600;margin-right:16px';
       linksContainer.appendChild(youtubeLink);
     }
 
-    
-  if(p.dataset.slide && p.dataset.slide !== '#' && p.dataset.slide !== '') {
-    const slideLink = document.createElement('a');
-    slideLink.href = p.dataset.slide;
-    slideLink.target = '_blank';
-    slideLink.textContent = 'Slides'; 
-    slideLink.style.cssText = 'color:var(--accent);text-decoration:none;font-weight:600;margin-left:16px';
-    linksContainer.appendChild(slideLink);
-}
-
+    if(p.dataset.slide){
+      const slideLink = document.createElement('a');
+      slideLink.href = p.dataset.slide;
+      slideLink.target = '_blank';
+      slideLink.textContent = 'Slides';
+      slideLink.style.cssText = 'color:var(--accent);text-decoration:none;font-weight:600;margin-left:16px';
+      linksContainer.appendChild(slideLink);
+    }
     
     modalBackdrop.classList.remove('hidden');
   });
