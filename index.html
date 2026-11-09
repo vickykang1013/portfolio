@@ -1,299 +1,1534 @@
-<!doctype html>
-<html lang="en">
+
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
 <head>
-<meta charset="utf-8" />
-<meta name="viewport" content="width=device-width,initial-scale=1" />
-<title>Bomin (Vicky) Kang — Software Engineer Portfolio</title>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
-<style>
-/* Vicky님의 기존 CSS 코드를 여기에 그대로 두세요 */
-:root{ --bg:#0f1724; --card:#0b1220; --muted:#9aa4b2; --accent:#6ee7b7; --text:#e6eef6; --glass: rgba(255,255,255,0.03); }
-[data-theme="light"]{ --bg:#f6f8fb; --card:#ffffff; --muted:#58606b; --accent:#0ea5a0; --text:#071029; --glass: rgba(10,22,33,0.03); }
-*{box-sizing:border-box;margin:0;padding:0}
-html,body{height:100%;font-family:'Inter',system-ui,-apple-system,Segoe UI,Roboto,'Noto Sans',Helvetica,Arial;line-height:1.6;background:var(--bg);color:var(--text);font-size:15px}
-.container{max-width:1100px;margin:0 auto;padding:24px}
-header{display:flex;align-items:center;justify-content:space-between;gap:16px;margin-bottom:32px;padding-bottom:16px;border-bottom:1px solid var(--glass)}
-.brand{display:flex;flex-direction:column;}
-h1{font-size:20px;font-weight:700}
-.subtitle{font-size:13px;color:var(--muted);margin-top:2px}
-nav{display:flex;gap:8px;align-items:center}
-nav a{color:var(--muted);text-decoration:none;font-weight:500;padding:8px 12px;border-radius:8px;font-size:14px;transition:all 0.2s}
-nav a:hover{background:var(--glass);color:var(--text)}
-.btn{background:linear-gradient(90deg,var(--accent),#60a5fa);color:var(--bg);padding:8px 16px;border-radius:8px;font-weight:600;text-decoration:none;font-size:14px;box-shadow:0 4px 12px rgba(110,231,183,0.3);transition:transform 0.2s;display:inline-block}
-.btn:hover{transform:translateY(-2px)}
-.btn-secondary{background:transparent;border:2px solid var(--accent);color:var(--accent);padding:8px 16px;border-radius:8px;font-weight:600;font-size:14px;cursor:pointer;transition:all 0.2s}
-.btn-secondary:hover{background:var(--accent);color:var(--bg)}
-.hero{display:grid;grid-template-columns:1.5fr 1fr;gap:24px;margin-bottom:40px}
-.lead{background:var(--card);padding:28px;border-radius:14px;box-shadow:0 4px 12px rgba(2,6,23,0.3)}
-.lead h2{font-size:26px;margin-bottom:12px;font-weight:700}
-.lead p{color:var(--muted);margin-bottom:20px;line-height:1.7}
-.skills{display:flex;flex-wrap:wrap;gap:8px;margin:20px 0}
-.chip{background:var(--glass);border:1px solid rgba(255,255,255,0.08);padding:6px 14px;border-radius:20px;font-weight:500;color:var(--muted);font-size:13px}
-.hero-actions{display:flex;gap:12px;margin-top:20px}
-.profile-card{background:var(--card);padding:24px;border-radius:14px;box-shadow:0 4px 12px rgba(2,6,23,0.3);display:flex;flex-direction:column;align-items:center;text-align:center}
-.profile-card h3{font-size:18px;margin-bottom:8px;font-weight:700}
-.profile-card p{color:var(--muted);font-size:13px;margin:4px 0}
-.profile-card ul{text-align:left;margin:12px 0;padding-left:20px;font-size:13px;color:var(--muted)}
-.profile-card ul li{margin:4px 0}
-.profile-links{display:flex;gap:8px;margin-top:16px;flex-wrap:wrap;justify-content:center}
-.profile-links a{background:var(--glass);padding:8px 14px;border-radius:8px;text-decoration:none;color:var(--muted);font-weight:500;font-size:13px;transition:all 0.2s}
-.profile-links a:hover{background:var(--accent);color:var(--bg)}
-section{margin-bottom:32px}
-.card{background:var(--card);border-radius:14px;padding:28px;box-shadow:0 4px 12px rgba(2,6,23,0.3)}
-.card h2{font-size:22px;margin-bottom:20px;font-weight:700}
-.exp-list{display:flex;flex-direction:column;gap:20px}
-.exp-item{display:flex;justify-content:space-between;gap:16px;padding-bottom:20px;border-bottom:1px solid var(--glass)}
-.exp-item:last-child{border-bottom:none;padding-bottom:0}
-.exp-left{flex:1}
-.exp-role{font-weight:700;margin-bottom:8px;font-size:16px}
-.exp-desc{color:var(--muted);font-size:14px;margin:4px 0}
-.exp-date{color:var(--muted);font-size:13px;white-space:nowrap;font-weight:500}
-.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:16px}
-.project{padding:20px;border-radius:12px;background:linear-gradient(180deg, rgba(255,255,255,0.02), transparent);border:1px solid var(--glass);cursor:pointer;transition:all 0.3s}
-.project:hover{transform:translateY(-4px);border-color:var(--accent);box-shadow:0 8px 20px rgba(110,231,183,0.15)}
-.project h3{font-size:17px;margin-bottom:8px;font-weight:600}
-.project p{color:var(--muted);font-size:14px;margin-bottom:12px}
-.tech{display:flex;flex-wrap:wrap;gap:6px}
-.tech span{font-size:12px;padding:4px 10px;border-radius:6px;background:var(--glass);color:var(--muted)}
-.contact{display:flex;gap:10px;flex-wrap:wrap}
-.contact a{background:var(--glass);padding:10px 16px;border-radius:8px;text-decoration:none;color:var(--muted);font-weight:500;font-size:14px;transition:all 0.2s}
-.contact a:hover{background:var(--accent);color:var(--bg)}
-footer{margin-top:40px;text-align:center;color:var(--muted);font-size:13px;padding:20px 0;border-top:1px solid var(--glass)}
-.modal-backdrop{position:fixed;inset:0;background:rgba(2,6,23,0.8);display:flex;align-items:center;justify-content:center;padding:20px;z-index:100;backdrop-filter:blur(4px)}
-.modal{background:var(--card);padding:32px;border-radius:14px;max-width:600px;width:100%;box-shadow:0 20px 60px rgba(2,6,23,0.6)}
-.modal h3{margin-bottom:16px;font-size:22px}
-.modal p{color:var(--muted);line-height:1.7;margin-bottom:12px}
-.modal-close{float:right;background:transparent;border:0;color:var(--muted);font-weight:700;font-size:24px;cursor:pointer;padding:0;line-height:1}
-.modal-close:hover{color:var(--text)}
-.hidden{display:none}
-.mobile-nav{display:none}
-.hamburger{background:transparent;border:0;color:var(--text);font-size:24px;cursor:pointer;padding:8px}
-@media(max-width:768px){
- .container{padding:16px} .hero{grid-template-columns:1fr;gap:20px} .lead{padding:20px} .lead h2{font-size:22px}
- nav{display:none;flex-direction:column;position:absolute;top:80px;right:16px;background:var(--card);padding:16px;border-radius:12px;box-shadow:0 8px 24px rgba(2,6,23,0.5);z-index:50}
- nav.show{display:flex} .mobile-nav{display:block} .grid{grid-template-columns:1fr} .exp-item{flex-direction:column} .exp-date{margin-top:8px}
-}
-</style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>Vicky Kang | Data Analytics & Statistical Modeling</title>
+
+  <meta
+    name="description"
+    content="Vicky Kang — Data Analytics, Statistical Modeling, Machine Learning, and Software Development Portfolio."
+  >
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap"
+    rel="stylesheet"
+  >
+
+  <style>
+    :root {
+      --bg: #f7f9fc;
+      --surface: #ffffff;
+      --ink: #14213b;
+      --muted: #59677d;
+      --line: #dee5ed;
+      --accent: #176e83;
+      --accent-soft: #e8f4f6;
+      --mint: #13a6a1;
+      --shadow: 0 12px 40px rgba(22,38,59,.055);
+    }
+
+    [data-theme="dark"] {
+      --bg: #101827;
+      --surface: #172337;
+      --ink: #eaf1f9;
+      --muted: #b3bfd1;
+      --line: #2a3d52;
+      --accent: #6fd6da;
+      --accent-soft: #193b47;
+      --mint: #6bd5cb;
+      --shadow: 0 12px 42px rgba(0,0,0,.15);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--ink);
+      font: 15px/1.65 'DM Sans', sans-serif;
+    }
+
+    h1, h2, h3, .brand {
+      font-family: 'Manrope', sans-serif;
+      letter-spacing: -.035em;
+    }
+
+    h1 {
+      font-size: clamp(2.55rem, 5.3vw, 4.5rem);
+      line-height: 1.11;
+      margin: 14px 0 22px;
+    }
+
+    h2 {
+      font-size: clamp(1.55rem, 2.6vw, 2.1rem);
+      margin: 0 0 12px;
+    }
+
+    h3 {
+      font-size: 1.12rem;
+      margin: 0 0 8px;
+    }
+
+    a {
+      color: inherit;
+    }
+
+    button {
+      font: inherit;
+      cursor: pointer;
+    }
+
+    a:focus-visible,
+    button:focus-visible {
+      outline: 3px solid var(--mint);
+      outline-offset: 4px;
+    }
+
+    .wrap {
+      max-width: 1120px;
+      margin: auto;
+      padding: 0 28px;
+    }
+
+    /* Navigation */
+
+    .topbar {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      background: var(--bg);
+      border-bottom: 1px solid var(--line);
+      backdrop-filter: blur(14px);
+    }
+
+    .nav {
+      height: 76px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+    }
+
+    .brand {
+      text-decoration: none;
+      font-weight: 800;
+      font-size: 1.16rem;
+      white-space: nowrap;
+    }
+
+    .brand span {
+      color: var(--accent);
+    }
+
+    .links {
+      display: flex;
+      align-items: center;
+      gap: 24px;
+    }
+
+    .links a {
+      text-decoration: none;
+      color: var(--muted);
+      font-weight: 600;
+      font-size: .89rem;
+    }
+
+    .links a:hover {
+      color: var(--accent);
+    }
+
+    .iconbtn {
+      border: 1px solid var(--line);
+      color: var(--ink);
+      background: var(--surface);
+      border-radius: 12px;
+      padding: 8px 12px;
+    }
+
+    .mobile-nav-button {
+      display: none;
+    }
+
+    /* Hero */
+
+    .hero {
+      padding: 86px 0 72px;
+      display: grid;
+      grid-template-columns: 1.4fr .75fr;
+      align-items: center;
+      gap: 60px;
+    }
+
+    .eyebrow {
+      text-transform: uppercase;
+      letter-spacing: .17em;
+      font-size: .75rem;
+      font-weight: 800;
+      color: var(--accent);
+    }
+
+    .hero h1 em {
+      font-style: normal;
+      color: var(--accent);
+    }
+
+    .hero p {
+      font-size: 1.08rem;
+      color: var(--muted);
+      max-width: 650px;
+      margin: 0;
+    }
+
+    .actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 29px;
+    }
+
+    .button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      text-decoration: none;
+      font-weight: 700;
+      border-radius: 10px;
+      padding: 12px 19px;
+      border: 1px solid var(--accent);
+      transition: transform .2s;
+    }
+
+    .button:hover {
+      transform: translateY(-2px);
+    }
+
+    .button.primary {
+      background: var(--accent);
+      color: var(--surface);
+    }
+
+    .button.secondary {
+      color: var(--accent);
+      background: transparent;
+    }
+
+    .portrait-panel {
+      border: 1px solid var(--line);
+      border-radius: 24px;
+      background: var(--surface);
+      padding: 27px;
+      box-shadow: var(--shadow);
+    }
+
+    .graphic {
+      height: 168px;
+      border-radius: 15px;
+      background: linear-gradient(
+        145deg,
+        var(--accent-soft),
+        var(--surface)
+      );
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+    }
+
+    .graphic svg {
+      width: 100%;
+      height: 100%;
+    }
+
+    .panel-label {
+      font-size: .72rem;
+      color: var(--accent);
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      font-weight: 800;
+      margin-top: 20px;
+    }
+
+    .panel-title {
+      font-size: 1.15rem;
+      font-weight: 800;
+      margin: 4px 0;
+    }
+
+    .panel-desc {
+      font-size: .88rem;
+      color: var(--muted);
+    }
+
+    /* General sections */
+
+    .section {
+      padding: 55px 0;
+      scroll-margin-top: 95px;
+    }
+
+    .section-heading {
+      display: flex;
+      align-items: end;
+      justify-content: space-between;
+      gap: 20px;
+      margin-bottom: 24px;
+    }
+
+    .section-heading p {
+      max-width: 580px;
+      color: var(--muted);
+      margin: 0;
+    }
+
+    .overline {
+      font-size: .73rem;
+      letter-spacing: .16em;
+      text-transform: uppercase;
+      font-weight: 800;
+      color: var(--accent);
+      margin-bottom: 8px;
+    }
+
+    .muted {
+      color: var(--muted);
+    }
+
+    /* Metrics */
+
+    .metric-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+    }
+
+    .metric {
+      background: var(--surface);
+      border: 1px solid var(--line);
+      padding: 23px;
+      border-radius: 16px;
+    }
+
+    .metric strong {
+      display: block;
+      font: 800 2.25rem/1.2 'Manrope', sans-serif;
+      color: var(--accent);
+    }
+
+    .metric span {
+      font-size: .86rem;
+      color: var(--muted);
+    }
+
+    /* Projects */
+
+    .project-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0,1fr));
+      gap: 18px;
+    }
+
+    .project {
+      border: 1px solid var(--line);
+      background: var(--surface);
+      border-radius: 18px;
+      padding: 28px;
+      box-shadow: var(--shadow);
+      transition: transform .2s, border-color .2s;
+    }
+
+    .project:hover {
+      transform: translateY(-3px);
+      border-color: var(--accent);
+    }
+
+    .project.featured {
+      grid-column: span 2;
+      display: grid;
+      grid-template-columns: 1.4fr .7fr;
+      gap: 25px;
+      align-items: center;
+    }
+
+    .tag {
+      display: inline-block;
+      background: var(--accent-soft);
+      color: var(--accent);
+      padding: 5px 10px;
+      border-radius: 7px;
+      font-size: .75rem;
+      font-weight: 800;
+      margin-bottom: 17px;
+    }
+
+    .project p {
+      color: var(--muted);
+      margin: 0 0 14px;
+    }
+
+    .project ul,
+    .exp-list {
+      padding-left: 19px;
+      margin: 12px 0 0;
+      color: var(--muted);
+    }
+
+    .project li,
+    .exp-list li {
+      padding-left: 3px;
+      margin: 6px 0;
+    }
+
+    .pills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 7px;
+      margin-top: 18px;
+    }
+
+    .pills span {
+      border: 1px solid var(--line);
+      color: var(--muted);
+      padding: 3px 9px;
+      border-radius: 6px;
+      font-size: .76rem;
+    }
+
+    .project-link {
+      display: inline-block;
+      margin-top: 17px;
+      margin-right: 12px;
+      color: var(--accent);
+      text-decoration: none;
+      font-weight: 800;
+      font-size: .88rem;
+    }
+
+    .project-link:hover {
+      text-decoration: underline;
+    }
+
+    /* Conceptual analytics illustration */
+
+    .mini-chart {
+      border-radius: 15px;
+      background: var(--bg);
+      border: 1px solid var(--line);
+      padding: 16px;
+    }
+
+    .barrow {
+      display: flex;
+      gap: 10px;
+      align-items: center;
+      margin: 13px 0;
+      font-size: .75rem;
+      color: var(--muted);
+    }
+
+    .barrow span {
+      min-width: 82px;
+    }
+
+    .barrow b {
+      flex: 1;
+      height: 10px;
+      background: var(--accent-soft);
+      border-radius: 30px;
+      overflow: hidden;
+    }
+
+    .barrow i {
+      display: block;
+      height: 100%;
+      background: var(--mint);
+      border-radius: 30px;
+    }
+
+    .chart-caption {
+      color: var(--muted);
+      font-size: .7rem;
+      margin-top: 15px;
+    }
+
+    /* Experience */
+
+    .timeline {
+      border-left: 2px solid var(--line);
+      margin-left: 8px;
+      display: grid;
+      gap: 18px;
+    }
+
+    .timeline-item {
+      position: relative;
+      padding: 1px 0 0 26px;
+    }
+
+    .timeline-item::before {
+      content: "";
+      width: 11px;
+      height: 11px;
+      background: var(--accent);
+      border: 3px solid var(--bg);
+      position: absolute;
+      left: -8px;
+      top: 8px;
+      border-radius: 50%;
+    }
+
+    .timeline-top {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      gap: 10px;
+    }
+
+    .timeline-top h3 {
+      margin: 0;
+    }
+
+    .timeline-top time {
+      color: var(--muted);
+      font-size: .83rem;
+      white-space: nowrap;
+    }
+
+    .company {
+      color: var(--accent);
+      font-weight: 700;
+      margin: 2px 0;
+    }
+
+    /* Education */
+
+    .edu-grid {
+      display: grid;
+      grid-template-columns: 1.2fr 1fr;
+      gap: 18px;
+    }
+
+    .info-card {
+      background: var(--surface);
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      padding: 26px;
+    }
+
+    .info-card p {
+      color: var(--muted);
+    }
+
+    .achievement {
+      display: grid;
+      gap: 12px;
+    }
+
+    .achievement div {
+      background: var(--accent-soft);
+      padding: 13px 16px;
+      border-radius: 10px;
+    }
+
+    .achievement strong {
+      color: var(--accent);
+      display: block;
+    }
+
+    /* Skills */
+
+    .skill-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 17px;
+    }
+
+    .skill-card {
+      border: 1px solid var(--line);
+      border-radius: 15px;
+      background: var(--surface);
+      padding: 24px;
+    }
+
+    .skill-card h3 {
+      margin-bottom: 10px;
+    }
+
+    .skill-card p {
+      color: var(--muted);
+      margin: 0;
+      font-size: .9rem;
+    }
+
+    /* Contact */
+
+    .contact-panel {
+      background: var(--accent-soft);
+      border: 1px solid var(--line);
+      padding: 32px;
+      border-radius: 20px;
+    }
+
+    .contact-panel p {
+      color: var(--muted);
+    }
+
+    .socials {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 21px;
+    }
+
+    .socials a {
+      color: var(--accent);
+      font-weight: 800;
+      text-decoration: none;
+      border-bottom: 1px solid var(--accent);
+    }
+
+    footer {
+      padding: 25px 0;
+      border-top: 1px solid var(--line);
+      color: var(--muted);
+      font-size: .82rem;
+    }
+
+    .footer-inner {
+      display: flex;
+      justify-content: space-between;
+      gap: 10px;
+    }
+
+    /* Responsive */
+
+    @media (max-width: 850px) {
+      .hero {
+        grid-template-columns: 1fr;
+        gap: 23px;
+        padding-top: 55px;
+      }
+
+      .portrait-panel {
+        max-width: 500px;
+      }
+
+      .project.featured {
+        grid-template-columns: 1fr;
+      }
+
+      .edu-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .skill-grid {
+        grid-template-columns: repeat(2,1fr);
+      }
+    }
+
+    @media (max-width: 620px) {
+      .wrap {
+        padding: 0 18px;
+      }
+
+      .nav {
+        height: 66px;
+      }
+
+      .mobile-nav-button {
+        display: block;
+      }
+
+      .links {
+        display: none;
+        position: absolute;
+        top: 66px;
+        left: 0;
+        right: 0;
+        background: var(--surface);
+        padding: 20px;
+        border-bottom: 1px solid var(--line);
+        box-shadow: var(--shadow);
+        flex-direction: column;
+        align-items: start;
+        gap: 17px;
+      }
+
+      .links.open {
+        display: flex;
+      }
+
+      .hero {
+        padding: 45px 0;
+      }
+
+      .metric-grid,
+      .project-grid,
+      .skill-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .project.featured {
+        grid-column: span 1;
+      }
+
+      .section {
+        padding: 37px 0;
+      }
+
+      .section-heading,
+      .timeline-top {
+        display: block;
+      }
+
+      .timeline-top time {
+        display: block;
+        margin-top: 4px;
+      }
+
+      .footer-inner {
+        display: block;
+      }
+
+      .contact-panel {
+        padding: 22px;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html {
+        scroll-behavior: auto;
+      }
+
+      .button,
+      .project {
+        transition: none;
+      }
+    }
+  </style>
 </head>
+
 <body>
-<div class="container" data-theme="dark">
-<header>
-  <div class="brand">
-    <h1>Bomin (Vicky) Kang</h1>
-    <p class="subtitle">Software Engineer Intern | Full-Stack Developer</p>
-  </div>
-  <nav id="mainNav">
-    <a href="#about">About</a>
-    <a href="#experience">Experience</a>
-    <a href="#projects">Projects</a>
-    <a href="#skills">Skills</a>
-    <a href="#contact">Contact</a>
-    <a class="btn" href="BominKang_SWE_Resume.pdf" id="downloadResume">Resume</a>
-  </nav>
-  <div class="mobile-nav">
-    <button class="hamburger" id="navToggle">☰</button>
-  </div>
-</header>
 
-<main>
-<div class="hero">
-  <div class="lead">
-    <h2>Turning "It Works" into "It's Optimized"</h2>
-    <p>Computer Science & Mathematics student specializing in building high-performance, automated software at speed. 
-       Experienced in architecting full-stack platforms from scratch within accelerated 2-week sprints. 
-       I focus on backend reliability, system performance, and leveraging Generative AI to solve complex business challenges with production-ready code.</p>
-    <div class="skills">
-      <div class="chip">Java</div>
-      <div class="chip">Python</div>
-      <div class="chip">TypeScript</div>
-      <div class="chip">React</div>
-      <div class="chip">Node.js</div>
-      <div class="chip">C++</div>
-      <div class="chip">Linear Algebra</div>
-      <div class="chip">AWS/Render/Vercel</div>
+  <!-- NAVIGATION -->
+
+  <header class="topbar">
+    <div class="wrap nav">
+
+      <a class="brand" href="#home">
+        Vicky<span>.</span> Kang
+      </a>
+
+      <nav class="links" id="nav" aria-label="Main navigation">
+        <a href="#about">About</a>
+        <a href="#projects">Projects</a>
+        <a href="#experience">Experience</a>
+        <a href="#education">Education</a>
+        <a href="#skills">Skills</a>
+        <a href="#contact">Contact</a>
+      </nav>
+
+      <div style="display:flex;gap:8px">
+        <button
+          class="iconbtn"
+          id="theme"
+          aria-label="Toggle dark mode"
+          title="Toggle theme"
+        >
+          ◐
+        </button>
+
+        <button
+          class="iconbtn mobile-nav-button"
+          id="menu"
+          aria-label="Open navigation"
+          aria-expanded="false"
+        >
+          ☰
+        </button>
+      </div>
+
     </div>
-    <div class="hero-actions">
-      <a class="btn" href="#projects">Explore My Builds</a>
-      <button class="btn-secondary" id="themeToggle">Switch Theme</button>
-    </div>
-  </div>
+  </header>
 
-  <aside class="profile-card">
-    <h3>Education & Foundations</h3>
-    <h4 style="color:var(--accent)">College of San Mateo</h4>
-    <p>2025 - 2027 (Expected)</p>
-    <p><strong>A.S. in CS & Mathematics</strong></p>
-    <p>Major GPA: 4.0 / 4.0</p>
+  <main id="home" class="wrap">
 
-        <ul style="margin-top:12px">
-      <li>GDG (Google Developer Group) Campus</li>
-      <li>ASCSM Equity Affairs Board</li>
-        </ul>
-    
-    <h4 style="margin-top:16px; color:var(--accent)">Myongji University</h4>
-    <p>2024 (On Leave)</p>
-    <p><strong>B.S. in Info. & Comm. Engineering</strong></p>
-    
+    <!-- HERO -->
 
-    <div class="profile-links">
-      <a href="https://www.linkedin.com/in/bomin-kang-079133387" target="_blank">LinkedIn</a>
-      <a href="https://github.com/vickykang1013" target="_blank">GitHub</a>
-      <a href="BominKang_Portfolio2025.pdf" download style="background:var(--accent); color:var(--bg)">Download Portfolio (PDF)</a>
-    </div>
-  </aside>
-</div>
+    <section class="hero">
 
-<section id="experience">
-  <div class="card">
-    <h2>Engineering Experience</h2>
-    <div class="exp-list">
-      <div class="exp-item">
-        <div class="exp-left">
-          <div class="exp-role" style="color:var(--accent)">Full-Stack Developer | LUCE Model Agency</div>
-          <ul class="exp-desc">
-            <li><strong>2-Week Rapid Prototyping:</strong> Engineered a functional agency platform from scratch within a 2-week sprint, covering full SDLC from UI design to backend deployment.</li>
-            <li><strong>Workflow Automation:</strong> Architected an automated recruitment pipeline using Node.js and Express, delivering applicant profiles via Nodemailer and eliminating manual data entry.</li>
-            <li><strong>System Reliability:</strong> Optimized development efficiency and reliability using AI-assisted tools for debugging and secure high-volume file upload handling.</li>
-          </ul>
+      <div>
+        <div class="eyebrow">
+          Data Analytics · Statistical Modeling · Machine Learning
         </div>
-        <div class="exp-date">Dec 2025 - Jan 2026</div>
-      </div>
 
-      <div class="exp-item">
-        <div class="exp-left">
-          <div class="exp-role">Production Director | Megastudy</div>
-          <ul class="exp-desc">
-            <li>Directed technical camera and audio setups for high-quality lecture productions.</li>
-            <li>Optimized post-production turnaround by documenting precise editing points for 100% of sessions.</li>
-          </ul>
+        <h1>
+          From complex data<br>
+          to <em>clear decisions.</em>
+        </h1>
+
+        <p>
+          I'm Vicky, a Mathematics and Computer Science student
+          who enjoys finding patterns, testing assumptions,
+          and turning messy information into trustworthy insights.
+
+          My work combines hands-on data analysis,
+          quantitative modeling, and practical software development.
+        </p>
+
+        <div class="actions">
+          <a class="button primary" href="#projects">
+            Explore projects ↗
+          </a>
+
+          <a
+            class="button secondary"
+            href="Vicky_Kang_Resume.pdf"
+            download
+          >
+            Download résumé ↓
+          </a>
         </div>
-        <div class="exp-date">Jun 2025 - Jul 2025</div>
       </div>
+
+      <aside class="portrait-panel" aria-label="Analytics focus">
+
+        <div class="graphic">
+          <svg
+            viewBox="0 0 310 170"
+            role="img"
+            aria-label="Decorative illustration of data points and trend line"
+          >
+            <g stroke="currentColor" opacity=".12" fill="none">
+              <path d="M20 20V150H290M20 50H290M20 90H290M20 130H290"/>
+            </g>
+
+            <g fill="#72b9c0" opacity=".48">
+              <rect x="43" y="98" width="25" height="52" rx="5"/>
+              <rect x="85" y="77" width="25" height="73" rx="5"/>
+              <rect x="127" y="91" width="25" height="59" rx="5"/>
+              <rect x="169" y="59" width="25" height="91" rx="5"/>
+              <rect x="211" y="42" width="25" height="108" rx="5"/>
+              <rect x="253" y="23" width="25" height="127" rx="5"/>
+            </g>
+
+            <path
+              d="M52 111L97 86L139 102L181 68L223 55L265 28"
+              fill="none"
+              stroke="#1a8494"
+              stroke-width="4"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            />
+
+            <g fill="#1a8494">
+              <circle cx="52" cy="111" r="5"/>
+              <circle cx="97" cy="86" r="5"/>
+              <circle cx="139" cy="102" r="5"/>
+              <circle cx="181" cy="68" r="5"/>
+              <circle cx="223" cy="55" r="5"/>
+              <circle cx="265" cy="28" r="5"/>
+            </g>
+          </svg>
+        </div>
+
+        <div class="panel-label">Current focus</div>
+
+        <div class="panel-title">
+          Data quality → Analysis → Insight
+        </div>
+
+        <div class="panel-desc">
+          Exploratory analysis, model evaluation,
+          reproducible experiments and data-informed workflows.
+        </div>
+
+      </aside>
+
+    </section>
+
+    <!-- ABOUT -->
+
+    <section id="about" class="section">
+
+      <div class="overline">01 / About my approach</div>
+
+      <div class="section-heading">
+        <h2>Evidence before assumptions.</h2>
+
+        <p>
+          I care about whether a result is reliable—not just
+          whether a model runs. That mindset connects my
+          research projects with my experience improving
+          real-world data processes.
+        </p>
+      </div>
+
+      <div class="metric-grid">
+
+        <div class="metric">
+          <strong>750</strong>
+          <span>
+            Automated evaluations across missing-data
+            and imputation scenarios
+          </span>
+        </div>
+
+        <div class="metric">
+          <strong>0.850</strong>
+          <span>
+            Baseline R² in academic performance prediction
+          </span>
+        </div>
+
+        <div class="metric">
+          <strong>60+</strong>
+          <span>
+            Student records managed and analyzed in a prior role
+          </span>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- PROJECTS -->
+
+    <section id="projects" class="section">
+
+      <div class="overline">02 / Selected work</div>
+
+      <div class="section-heading">
+        <h2>Projects & analytical work</h2>
+
+        <p>
+          Data analysis takes priority here, with machine learning
+          and software engineering as complementary tools.
+        </p>
+      </div>
+
+      <div class="project-grid">
+
+        <!-- FEATURED PROJECT -->
+
+        <article class="project featured">
+
+          <div>
+            <span class="tag">
+              FEATURED · DATA ANALYSIS & MODEL EVALUATION
+            </span>
+
+            <h3>
+              Academic Performance Prediction Under Missing Data
+            </h3>
+
+            <p>
+              Investigated how missing observations and imputation
+              methods influence the reliability of predictions.
+
+              Built Linear Regression and Random Forest baselines,
+              then automated 750 model evaluations to compare
+              performance under varying data conditions.
+            </p>
+
+            <ul>
+              <li>
+                Baseline model performance:
+                <strong>R² = 0.850</strong>
+              </li>
+
+              <li>
+                Focus: missing-data scenarios, imputation,
+                model robustness and reproducibility
+              </li>
+
+              <li>
+                Emphasis: evaluating data quality before
+                trusting predictions
+              </li>
+            </ul>
+
+            <div class="pills">
+              <span>Python</span>
+              <span>pandas</span>
+              <span>NumPy</span>
+              <span>scikit-learn</span>
+              <span>Matplotlib</span>
+              <span>Statistics</span>
+            </div>
+          </div>
+
+          <div
+            class="mini-chart"
+            aria-label="Illustrative analytical workflow graphic"
+          >
+
+            <div class="overline">
+              Analytical workflow
+            </div>
+
+            <div class="barrow">
+              <span>Data quality</span>
+              <b><i style="width:85%"></i></b>
+            </div>
+
+            <div class="barrow">
+              <span>Modeling</span>
+              <b><i style="width:70%"></i></b>
+            </div>
+
+            <div class="barrow">
+              <span>Evaluation</span>
+              <b><i style="width:95%"></i></b>
+            </div>
+
+            <div class="barrow">
+              <span>Interpretation</span>
+              <b><i style="width:80%"></i></b>
+            </div>
+
+            <p class="chart-caption">
+              Conceptual illustration only; bar lengths
+              are not measured outcomes.
+            </p>
+
+          </div>
+
+        </article>
+
+        <!-- SALESFORCE ANALYSIS -->
+
+        <article class="project">
+
+          <span class="tag">
+            APPLIED ANALYTICS · DATA QUALITY
+          </span>
+
+          <h3>
+            Admissions Data Analysis & Validation
+          </h3>
+
+          <p>
+            At the International Affairs Office,
+            analyzed Salesforce admissions data with Python
+            to identify patterns in student citizenship and
+            admission status.
+
+            Audited institutional records using Salesforce
+            and Excel to support data accuracy.
+          </p>
+
+          <div class="pills">
+            <span>Python</span>
+            <span>Salesforce</span>
+            <span>Excel</span>
+            <span>Data Validation</span>
+          </div>
+
+          <p class="muted" style="font-size:.8rem;margin-top:15px">
+            Professional work; sensitive student records
+            are not displayed.
+          </p>
+
+        </article>
+
+        <!-- INCIDENT REPORTING -->
+
+        <article class="project">
+
+          <span class="tag">
+            PROCESS IMPROVEMENT · STRUCTURED DATA
+          </span>
+
+          <h3>
+            Incident Reporting Workflow
+          </h3>
+
+          <p>
+            Developed a Formstack-based reporting system
+            and standardized follow-up procedures for
+            the International Affairs Office.
+
+            Focused on consistent documentation and clearer
+            information continuity across cases.
+          </p>
+
+          <div class="pills">
+            <span>Formstack</span>
+            <span>Workflow Design</span>
+            <span>Documentation</span>
+          </div>
+
+          <p class="muted" style="font-size:.8rem;margin-top:15px">
+            Operational details and confidential records
+            remain private.
+          </p>
+
+        </article>
+
+        <!-- LUCE -->
+
+        <article class="project">
+
+          <span class="tag">
+            SOFTWARE · DATA WORKFLOWS
+          </span>
+
+          <h3>
+            LUCE Model Agency Platform
+          </h3>
+
+          <p>
+            Built a full-stack application with structured
+            applicant processing, file uploads and automated
+            email notifications.
+
+            Integrated REST APIs to reduce manual handling
+            across application workflows.
+          </p>
+
+          <div class="pills">
+            <span>React</span>
+            <span>TypeScript</span>
+            <span>Node.js</span>
+            <span>Express.js</span>
+            <span>Multer</span>
+            <span>Nodemailer</span>
+          </div>
+
+          <a
+            class="project-link"
+            href="https://github.com/vickykang1013/luceagency"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            View code ↗
+          </a>
+
+        </article>
+
+        <!-- LEARNIT AI -->
+
+        <article class="project">
+
+          <span class="tag">
+            AI APPLICATION · HACKATHON
+          </span>
+
+          <h3>
+            LearnIt AI — Cal Hacks 12.0
+          </h3>
+
+          <p>
+            Collaborated on a personalized study planning
+            prototype using the Groq API to parse syllabi
+            and generate study materials and quizzes.
+
+            Integrated and deployed front-end and back-end
+            components.
+          </p>
+
+          <div class="pills">
+            <span>Python</span>
+            <span>Flask</span>
+            <span>Groq API</span>
+            <span>JavaScript</span>
+          </div>
+
+          <a
+            class="project-link"
+            href="https://learnit-ai.onrender.com"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Live demo ↗
+          </a>
+
+          <a
+            class="project-link"
+            href="https://github.com/vickykang1013/LearnIT-AI"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            View code ↗
+          </a>
+
+        </article>
+
+      </div>
+    </section>
+
+    <!-- EXPERIENCE -->
+
+    <section id="experience" class="section">
+
+      <div class="overline">03 / Experience</div>
+
+      <div class="section-heading">
+        <h2>Practical, data-minded work</h2>
+
+        <p>
+          From operational databases to real applications,
+          my goal is to make information more useful and
+          processes more dependable.
+        </p>
+      </div>
+
+      <div class="timeline">
+
+        <!-- INTERNATIONAL AFFAIRS -->
+
+        <article class="timeline-item">
+
+          <div class="timeline-top">
+            <h3>International Affairs Student Assistant</h3>
+            <time>May 2026 – Present</time>
+          </div>
+
+          <div class="company">
+            San Mateo County Community College District
+          </div>
+
+          <ul class="exp-list">
+            <li>
+              Analyzed Salesforce admissions data with Python
+              to identify patterns in citizenship and admission status.
+            </li>
+
+            <li>
+              Validated institutional data using Salesforce and Excel.
+            </li>
+
+            <li>
+              Built an incident reporting workflow using Formstack
+              and structured response procedures.
+            </li>
+          </ul>
+
+        </article>
+
+        <!-- LUCE -->
+
+        <article class="timeline-item">
+
+          <div class="timeline-top">
+            <h3>Full-Stack Developer</h3>
+            <time>Dec 2025 – Jan 2026</time>
+          </div>
+
+          <div class="company">
+            LUCE Model Agency
+          </div>
+
+          <ul class="exp-list">
+            <li>
+              Developed a full-stack applicant management website
+              using React, TypeScript, Node.js and Express.js.
+            </li>
+
+            <li>
+              Automated file uploads and email notifications
+              and integrated REST APIs.
+            </li>
+          </ul>
+
+        </article>
+
+        <!-- UNISENSE -->
+
+        <article class="timeline-item">
+
+          <div class="timeline-top">
+            <h3>Student Support Manager</h3>
+            <time>Mar 2025 – Jul 2025</time>
+          </div>
+
+          <div class="company">
+            Unisense English Academy
+          </div>
+
+          <ul class="exp-list">
+            <li>
+              Managed and analyzed information for more than
+              60 students to support academic guidance
+              and enrollment decisions.
+            </li>
+
+            <li>
+              Supported personalized consultations associated
+              with an 80%+ immediate enrollment rate.
+            </li>
+          </ul>
+
+        </article>
+
+      </div>
+    </section>
+
+    <!-- EDUCATION -->
+
+    <section id="education" class="section">
+
+      <div class="overline">
+        04 / Education & recognition
+      </div>
+
+      <div class="edu-grid">
+
+        <div class="info-card">
+
+          <h2>Education</h2>
+
+          <h3>College of San Mateo</h3>
+
+          <p>
+            A.S. in Computer Science & Mathematics<br>
+            2025–2027 (Expected)
+          </p>
+
+          <p>
+            <strong>GPA: 3.84 / 4.00</strong>
+          </p>
+
+          <p>
+            Relevant Coursework:
+            Statistics, Calculus I–III,
+            Foundations of Data Science,
+            Data Structures,
+            Programming Methods in Java
+          </p>
+
+          <hr style="border:0;border-top:1px solid var(--line);margin:22px 0">
+
+          <h3>Myongji University</h3>
+
+          <p>
+            Information & Communication Engineering<br>
+            2024 (On Leave)
+          </p>
+
+          <p>
+            Relevant Coursework:
+            Python, C++, IoT, Calculus, Linear Algebra
+          </p>
+
+        </div>
+
+        <!-- HONORS -->
+
+        <div class="info-card">
+
+          <h2>Honors & Awards</h2>
+
+          <div class="achievement">
+
+            <div>
+              <strong>$5,000 Scholarship</strong>
+              Rosalie O’Mahony Mathematics /
+              Civil Engineering Scholarship
+            </div>
+
+            <div>
+              <strong>Dean’s List</strong>
+              Three consecutive terms
+            </div>
+
+          </div>
+
+          <p style="font-size:.86rem;margin-top:22px">
+            Recognition for academic achievement
+            while pursuing quantitative and computing coursework.
+          </p>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- SKILLS -->
+
+    <section id="skills" class="section">
+
+      <div class="overline">
+        05 / Toolkit
+      </div>
+
+      <div class="section-heading">
+        <h2>Tools I use to solve problems</h2>
+
+        <p>
+          Analysis first; modeling and engineering where they
+          make the solution more useful.
+        </p>
+      </div>
+
+      <div class="skill-grid">
+
+        <div class="skill-card">
+          <h3>Data Analytics</h3>
+
+          <p>
+            Python, pandas, NumPy, Excel, Salesforce,
+            Data Preprocessing, Data Validation,
+            Exploratory Analysis
+          </p>
+        </div>
+
+        <div class="skill-card">
+          <h3>Statistics & Machine Learning</h3>
+
+          <p>
+            scikit-learn, Linear Regression, Random Forest,
+            Predictive Modeling, Imputation Comparisons,
+            Model Evaluation, Matplotlib
+          </p>
+        </div>
+
+        <div class="skill-card">
+          <h3>Software & Development Tools</h3>
+
+          <p>
+            Java, JavaScript, TypeScript, React, Node.js,
+            Express, Flask, Git, GitHub, Jupyter Notebook,
+            Formstack, Render, Vercel
+          </p>
+        </div>
+
+      </div>
+
+      <p class="muted" style="font-size:.85rem;margin-top:13px">
+        SQL is currently a learning priority and is not listed
+        as a proficient skill.
+      </p>
+
+    </section>
+
+    <!-- CONTACT -->
+
+    <section id="contact" class="section">
+
+      <div class="contact-panel">
+
+        <div class="overline">
+          06 / Get in touch
+        </div>
+
+        <h2>Let's make data useful.</h2>
+
+        <p>
+          Interested in 2027 opportunities in data analytics,
+          data science, and related technical roles.
+
+          Open to collaborative, data-driven work across industries.
+        </p>
+
+        <div class="actions">
+
+          <a
+            class="button primary"
+            href="mailto:vicky1013kr@gmail.com"
+          >
+            Email me ↗
+          </a>
+
+          <a
+            class="button secondary"
+            href="Vicky_Kang_Resume.pdf"
+            download
+          >
+            Download résumé ↓
+          </a>
+
+        </div>
+
+        <div class="socials">
+
+          <a
+            href="https://www.linkedin.com/in/vicky-kang-079133387"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            LinkedIn ↗
+          </a>
+
+          <a
+            href="https://github.com/vickykang1013"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            GitHub ↗
+          </a>
+
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+  <!-- FOOTER -->
+
+  <footer>
+    <div class="wrap footer-inner">
+
+      <span>
+        © 2026 Bomin (Vicky) Kang
+      </span>
+
+      <span>
+        Built with curiosity, careful analysis, and code.
+      </span>
+
     </div>
-  </div>
-</section>
+  </footer>
 
-<section id="projects">
-  <div class="card">
-    <h2>Featured Projects</h2>
-    <div class="grid" id="projectsGrid">
-      <div class="project" 
-           data-title="LUCE Agency Platform" 
-           data-desc="A full-stack automation tool for model recruitment. Features include automated PDF generation, secure file uploads, and internal email pipelines." 
-           data-tech="Node.js, Express, React, Tailwind, Nodemailer"
-           data-github="https://github.com/vickykang1013/luceagency.git">
-        <h3>LUCE Agency Hub</h3>
-        <p>100% Automated recruitment pipeline built in 14 days.</p>
-        <div class="tech"><span>Node.js</span><span>Express</span><span>React</span></div>
-      </div>
+  <!-- JAVASCRIPT -->
 
-      <div class="project" 
-           data-title="Cal Hacks 12.0 - LearnIt AI" 
-           data-desc="AI-powered personalized study planner that analyzes syllabi to generate weekly study guides and quizzes." 
-           data-tech="Python, Groq API, HTML/CSS, JavaScript"
-           data-website="https://learnit-ai.onrender.com"
-           data-github="https://github.com/vickykang1013/LearnIT-AI.git">
-        <h3>LearnIt AI (Cal Hacks)</h3>
-        <p>Personalized learning plans utilizing AI API integrations.</p>
-        <div class="tech"><span>Python</span><span>AI API</span><span>Render</span></div>
-      </div>
-    </div>
-  </div>
-</section>
+  <script>
+    // Theme switching
 
-<section id="skills">
-  <div class="card">
-    <h2>Technical Arsenal</h2>
-    <div class="skills-group">
-      <h3>Languages & Foundations</h3>
-      <div class="skills">
-        <div class="chip" style="border-color:var(--accent)">Java</div>
-        <div class="chip" style="border-color:var(--accent)">Python</div>
-        <div class="chip" style="border-color:var(--accent)">C++</div>
-        <div class="chip">TypeScript</div>
-        <div class="chip">JavaScript</div>
-      </div>
+    const html = document.documentElement;
+    const theme = document.getElementById("theme");
 
-      <h3>Backend & Infrastructure</h3>
-      <div class="skills">
-        <div class="chip">Node.js</div>
-        <div class="chip">Express.js</div>
-        <div class="chip">RESTful APIs</div>
-        <div class="chip">AWS</div>
-        <div class="chip">Git / GitHub</div>
-      </div>
+    theme.addEventListener("click", () => {
+      const currentTheme = html.dataset.theme;
 
-      <h3>Frontend & Design</h3>
-      <div class="skills">
-        <div class="chip">React.js</div>
-        <div class="chip">Tailwind CSS</div>
-        <div class="chip">Framer Motion</div>
-        <div class="chip">Figma</div>
-      </div>
-    </div>
-  </div>
-</section>
+      html.dataset.theme =
+        currentTheme === "dark" ? "light" : "dark";
+    });
 
-<section id="contact">
-  <div class="card" style="text-align: center;">
-    <h2>Let's Build Something Impactful</h2>
-    <p style="color:var(--muted);margin-bottom:24px">Seeking 2026 Software Engineering Internships. Let's connect.</p>
-    <div class="contact" style="justify-content: center;">
-      <a class="btn" href="mailto:vicky1013kr@gmail.com">Send Email</a>
-      <a href="https://www.linkedin.com/in/bomin-kang-079133387" target="_blank">LinkedIn</a>
-      <a href="https://github.com/vickykang1013" target="_blank">GitHub</a>
-    </div>
-  </div>
-</section>
+    // Mobile navigation
 
-<footer>
-  <p>© 2026 Bomin (Vicky) Kang. Built for High-Performance.</p>
-</footer>
+    const menu = document.getElementById("menu");
+    const nav = document.getElementById("nav");
 
-<div class="modal-backdrop hidden" id="modalBackdrop">
-  <div class="modal">
-    <button class="modal-close" id="modalClose">&times;</button>
-    <h3 id="modalTitle"></h3>
-    <p id="modalDesc"></p>
-    <p><strong>Tech Stack:</strong> <span id="modalTech"></span></p>
-    <div id="modalLinks" style="margin-top:16px"></div>
-  </div>
-</div>
+    menu.addEventListener("click", () => {
+      const isOpen = nav.classList.toggle("open");
 
-<script>
-// 기존 스크립트 그대로 사용
-const themeToggle = document.getElementById('themeToggle');
-const container = document.querySelector('.container');
-themeToggle.addEventListener('click', () => { container.dataset.theme = container.dataset.theme === 'dark' ? 'light' : 'dark'; });
-const navToggle = document.getElementById('navToggle');
-const mainNav = document.getElementById('mainNav');
-navToggle.addEventListener('click', () => { mainNav.classList.toggle('show'); });
-const projects = document.querySelectorAll('.project');
-const modalBackdrop = document.getElementById('modalBackdrop');
-const modalTitle = document.getElementById('modalTitle');
-const modalDesc = document.getElementById('modalDesc');
-const modalTech = document.getElementById('modalTech');
-const modalClose = document.getElementById('modalClose');
-projects.forEach(p => {
-  p.addEventListener('click', () => {
-    modalTitle.textContent = p.dataset.title;
-    modalDesc.textContent = p.dataset.desc;
-    modalTech.textContent = p.dataset.tech;
-    const linksContainer = document.getElementById('modalLinks');
-    linksContainer.innerHTML = '';
-    if(p.dataset.website){ 
-      const l = document.createElement('a'); l.href = p.dataset.website; l.target = '_blank'; l.textContent = 'Live Demo';
-      l.style.cssText = 'color:var(--accent);text-decoration:none;font-weight:600;margin-right:16px'; linksContainer.appendChild(l);
-    }
-    if(p.dataset.github){
-      const l = document.createElement('a'); l.href = p.dataset.github; l.target = '_blank'; l.textContent = 'GitHub';
-      l.style.cssText = 'color:var(--accent);text-decoration:none;font-weight:600;'; linksContainer.appendChild(l);
-    }
-    modalBackdrop.classList.remove('hidden');
-  });
-});
-modalClose.addEventListener('click', () => { modalBackdrop.classList.add('hidden'); });
-modalBackdrop.addEventListener('click', (e) => { if(e.target === modalBackdrop) modalBackdrop.classList.add('hidden'); });
-</script>
+      menu.setAttribute("aria-expanded", String(isOpen));
+      menu.textContent = isOpen ? "✕" : "☰";
+    });
+
+    // Close menu after clicking a link
+
+    nav.querySelectorAll("a").forEach((link) => {
+      link.addEventListener("click", () => {
+        nav.classList.remove("open");
+        menu.setAttribute("aria-expanded", "false");
+        menu.textContent = "☰";
+      });
+    });
+  </script>
+
 </body>
 </html>
